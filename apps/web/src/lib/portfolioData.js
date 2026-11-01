@@ -113,7 +113,7 @@ export const portfolioData = {
     ]
   },
   Wedding: {
-    coverImage: "https://images.unsplash.com/photo-1700473370106-04f6cc02cbaf",
+    coverImage: "https://drive.google.com/uc?export=view&id=1zcVUGJodnE6eWykUAGhvIY8n6A_WrGyp",
     photos: [
       {
         id: "w-1",
