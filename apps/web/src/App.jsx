@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
-import { Toaster } from '@/components/ui/sonner';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import HomePage from './pages/HomePage.jsx';
 import PortfolioPage from './pages/PortfolioPage.jsx';
@@ -26,7 +25,6 @@ function App() {
           </div>
         } />
       </Routes>
-      <Toaster />
     </Router>
   );
 }
