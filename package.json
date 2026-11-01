@@ -8,9 +8,6 @@
     "start": "npm run start --prefix apps/web",
     "lint": "npm run lint --prefix apps/web"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.2"
-  },
   "workspaces": [
     "apps/web"
   ]
