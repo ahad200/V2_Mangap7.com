@@ -31,10 +31,6 @@ const HomePage = () => {
         {/* Portfolio Collections Section */}
         <section className={`flex-grow bg-muted/30 ${selectedCategory ? 'pt-8 pb-[var(--section-padding-y)]' : 'pb-[var(--section-padding-y)] pt-8'}`}>
           <div className="container mx-auto px-2 sm:px-4">
-            {!selectedCategory && (
-              <div className="text-center mb-8">
-              </div>
-            )}
             <PortfolioHierarchy onCategoryChange={setSelectedCategory} />
           </div>
         </section>
