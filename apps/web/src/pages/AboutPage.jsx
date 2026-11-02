@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import ImageLoader from '@/components/ImageLoader.jsx';
+import { SITE_URL } from '@/lib/site.js';
 
 const AboutPage = () => {
   const gearList = [
@@ -25,6 +26,7 @@ const AboutPage = () => {
       <Helmet>
         <title>About - Firman Suryani Photography</title>
         <meta name="description" content="Meet Firman Suryani, a professional photographer and visual storyteller capturing authentic moments." />
+        <link rel="canonical" href={`${SITE_URL}/about`} />
       </Helmet>
 
       <Header />
