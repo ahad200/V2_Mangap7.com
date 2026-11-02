@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex items-center space-x-6">
           <a
             href="https://instagram.com/mangap7"
-            target="https://www.instagram.com/mangap7"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors p-2"
             aria-label="Instagram"
@@ -19,7 +19,7 @@ const Footer = () => {
           </a>
           <a
             href="https://youtube.com/@firmansuryani/"
-            target="https://www.youtube.com/@firmansuryani/"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors p-2"
             aria-label="YouTube"

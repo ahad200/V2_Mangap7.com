@@ -82,9 +82,9 @@ const PortfolioHierarchy = ({ onCategoryChange }) => {
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" />
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-6 text-center">
-              <h3 className="text-white text-3xl font-bold tracking-wide drop-shadow-md">
+              <h2 className="text-white text-3xl font-bold tracking-wide drop-shadow-md">
                 {catName === 'MusicEvent' ? 'Music Events' : catName}
-              </h3>
+              </h2>
             </div>
           </div>
         </motion.div>
