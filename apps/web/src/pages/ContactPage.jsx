@@ -6,6 +6,7 @@ import { Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
+import { SITE_URL } from '@/lib/site.js';
 
 const ContactPage = () => {
   return (
@@ -13,6 +14,7 @@ const ContactPage = () => {
       <Helmet>
         <title>Contact - Firman Suryani Photography</title>
         <meta name="description" content="Get in touch with Firman Suryani for photography inquiries, bookings, and collaborations via Instagram." />
+        <link rel="canonical" href={`${SITE_URL}/contact`} />
       </Helmet>
 
       <Header />
