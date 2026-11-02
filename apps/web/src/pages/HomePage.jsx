@@ -5,6 +5,7 @@ import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import PhotoCarousel from '@/components/PhotoCarousel.jsx';
 import PortfolioHierarchy from '@/components/PortfolioHierarchy.jsx';
+import { SITE_URL } from '@/lib/site.js';
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -14,11 +15,13 @@ const HomePage = () => {
       <Helmet>
         <title>Firman Suryani - Professional Photography Portfolio</title>
         <meta name="description" content="Professional photographer specializing in wedding, commercial, street, and nature photography. Capturing moments that matter." />
+        <link rel="canonical" href={`${SITE_URL}/`} />
       </Helmet>
       
       <Header />
       
       <main className="flex-1 pt-16 flex flex-col">
+        <h1 className="sr-only">Firman Suryani Photography</h1>
         {/* Carousel Section - Only show when no category is selected */}
         {!selectedCategory && (
           <section className="pt-8 pb-12 bg-background">
