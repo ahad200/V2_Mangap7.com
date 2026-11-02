@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import PortfolioHierarchy from '@/components/PortfolioHierarchy.jsx';
+import { SITE_URL } from '@/lib/site.js';
 
 const PortfolioPage = () => {
   return (
@@ -12,6 +13,7 @@ const PortfolioPage = () => {
       <Helmet>
         <title>Portfolio - Firman Suryani Photography</title>
         <meta name="description" content="Browse my comprehensive photography portfolio featuring curated collections of wedding, commercial, street, and nature photography." />
+        <link rel="canonical" href={`${SITE_URL}/portfolio`} />
       </Helmet>
 
       <Header />
