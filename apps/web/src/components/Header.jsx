@@ -22,8 +22,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3" aria-label="Firman Suryani home">
             <img
-              src="/firman.svg"
+              src="/logo.webp"
               alt="Firman Suryani logo"
+              width="256"
+              height="256"
               className="h-20 w-20 object-contain bg-transparent shadow-none sm:h-24 sm:w-24 md:h-28 md:w-28"
             />
           </Link>

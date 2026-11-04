@@ -9,9 +9,13 @@ const PortfolioPage = lazy(() => import('./pages/PortfolioPage.jsx'));
 const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 
-function App() {
+/** Paths that are prerendered to static HTML at build time (see tools/prerender.js). */
+export const PRERENDER_ROUTES = ['/', '/portfolio', '/about', '/contact'];
+
+/** Route tree without a router, so it can run in the browser and during prerendering. */
+export function AppRoutes() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
       <Routes>
@@ -34,6 +38,14 @@ function App() {
         } />
       </Routes>
       </Suspense>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 }

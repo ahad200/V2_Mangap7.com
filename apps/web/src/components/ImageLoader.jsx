@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { convertGoogleDriveUrl, buildGoogleDriveSrcSet } from '@/lib/googleDriveUtils.js';
 
 /**
@@ -15,11 +15,18 @@ const ImageLoader = ({
   priority = false,
 }) => {
   const [status, setStatus] = useState('loading'); // 'loading', 'loaded', 'error'
-  const [currentSrc, setCurrentSrc] = useState('');
-  const [srcSet, setSrcSet] = useState(undefined);
+  // Initialised from props (not in an effect) so the <img> is part of the prerendered HTML
+  const [currentSrc, setCurrentSrc] = useState(() => convertGoogleDriveUrl(src, 1200));
+  const [srcSet, setSrcSet] = useState(() => buildGoogleDriveSrcSet(src));
   const [hasFallenBack, setHasFallenBack] = useState(false);
+  const imgRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     setStatus('loading');
     setCurrentSrc(convertGoogleDriveUrl(src, 1200));
     setSrcSet(buildGoogleDriveSrcSet(src));
@@ -41,6 +48,21 @@ const ImageLoader = ({
     }
   };
 
+  // With prerendered HTML the image may finish (or fail) loading before React
+  // hydrates, in which case onLoad/onError already fired and were missed.
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img || !img.complete) return;
+    if (img.naturalWidth > 0) {
+      setStatus('loaded');
+    } else {
+      // Either a not-yet-started lazy image or an early failure: re-assigning src
+      // restarts loading so the (now attached) onLoad/onError handlers run.
+      // eslint-disable-next-line no-self-assign
+      img.src = img.src;
+    }
+  }, [currentSrc]);
+
   return (
     <div className={`relative overflow-hidden bg-muted flex items-center justify-center ${wrapperClassName || 'h-full w-full'}`}>
       {/* Loading Skeleton */}
@@ -58,6 +80,7 @@ const ImageLoader = ({
       {/* Image Element */}
       {status !== 'error' && currentSrc && (
         <img
+          ref={imgRef}
           src={currentSrc}
           srcSet={srcSet}
           sizes={srcSet ? sizes : undefined}

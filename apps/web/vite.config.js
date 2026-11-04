@@ -2,7 +2,7 @@ import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   server: {
     port: 3000,
@@ -17,8 +17,9 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      output: {
-        // Split rarely-changing vendor code into its own cacheable chunks
+      // Split rarely-changing vendor code into its own cacheable chunks
+      // (client build only; the prerender build keeps dependencies external)
+      output: isSsrBuild ? {} : {
         manualChunks: {
           react: ['react', 'react-dom', 'react-router-dom'],
           motion: ['framer-motion'],
@@ -26,4 +27,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
