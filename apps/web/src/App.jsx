@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import ScrollToTop from './components/ScrollToTop.jsx';
 
 // Pages are loaded on demand so the first visit downloads less JavaScript
@@ -46,6 +47,7 @@ function App() {
   return (
     <Router>
       <AppRoutes />
+      <Analytics />
     </Router>
   );
 }
