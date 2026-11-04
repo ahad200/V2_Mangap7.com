@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop.jsx';
-import HomePage from './pages/HomePage.jsx';
-import PortfolioPage from './pages/PortfolioPage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
+
+// Pages are loaded on demand so the first visit downloads less JavaScript
+const HomePage = lazy(() => import('./pages/HomePage.jsx'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage.jsx'));
+const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
@@ -30,6 +33,7 @@ function App() {
           </div>
         } />
       </Routes>
+      </Suspense>
     </Router>
   );
 }

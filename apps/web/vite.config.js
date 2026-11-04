@@ -14,5 +14,16 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        // Split rarely-changing vendor code into its own cacheable chunks
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          motion: ['framer-motion'],
+        },
+      },
+    },
+  },
 });

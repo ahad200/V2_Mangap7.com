@@ -48,6 +48,8 @@ const PhotoCarousel = () => {
                 <ImageLoader
                   src={image.src}
                   alt={image.alt}
+                  sizes="100vw"
+                  priority={index === 0}
                   wrapperClassName="w-full h-full"
                   className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105"
                 />
