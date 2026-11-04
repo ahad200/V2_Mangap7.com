@@ -45,7 +45,7 @@ const ContactPage = () => {
                 </p>
                 
                 <Button
-                  onClick={() => window.open('https://instagram.com/mangap7', '_blank')}
+                  onClick={() => window.open('https://instagram.com/mangap7', '_blank', 'noopener,noreferrer')}
                   className="w-full bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white transition-all duration-200 active:scale-[0.98] h-12 text-base font-medium shadow-md"
                 >
                   <Instagram className="mr-2 h-5 w-5" />

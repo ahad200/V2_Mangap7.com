@@ -15,6 +15,38 @@
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta name="twitter:card" content="summary_large_image" />
+		<!-- Structured data: tells search engines this is the portfolio of photographer Firman Suryani ("Mangap7") -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "WebSite",
+					"@id": "https://mangap7.com/#website",
+					"url": "https://mangap7.com/",
+					"name": "Firman Suryani Photography",
+					"alternateName": ["Mangap7", "Mangap7 Photography"],
+					"description": "Photography portfolio of Firman Suryani (Mangap7), a professional photographer.",
+					"inLanguage": "en",
+					"publisher": { "@id": "https://mangap7.com/#person" }
+				},
+				{
+					"@type": "Person",
+					"@id": "https://mangap7.com/#person",
+					"name": "Firman Suryani",
+					"alternateName": ["Mangap", "Mangap7"],
+					"jobTitle": "Photographer",
+					"description": "Photographer and visual storyteller specializing in wedding, commercial, street, and nature photography.",
+					"url": "https://mangap7.com/",
+					"image": "https://mangap7.com/og-image.jpg",
+					"sameAs": [
+						"https://instagram.com/mangap7",
+						"https://youtube.com/@firmansuryani"
+					]
+				}
+			]
+		}
+		</script>
 		<title>Firman Suryani Photography</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
