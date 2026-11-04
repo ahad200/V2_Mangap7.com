@@ -45,7 +45,8 @@ const PortfolioHierarchy = ({ onCategoryChange }) => {
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md border border-border/50 bg-muted">
                 <ImageLoader 
                   src={photo.image} 
-                  alt={photo.title} 
+                  alt={photo.title}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
@@ -77,7 +78,8 @@ const PortfolioHierarchy = ({ onCategoryChange }) => {
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-muted border border-border/50 mb-4">
             <ImageLoader 
               src={catData.coverImage} 
-              alt={catName} 
+              alt={catName}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" />

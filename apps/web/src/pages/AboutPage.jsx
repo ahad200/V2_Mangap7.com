@@ -47,7 +47,9 @@ const AboutPage = () => {
                   <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-border/50 bg-muted">
                     <ImageLoader 
                       src="https://drive.google.com/uc?export=view&id=1xQMuxqdkkCkWyfB-YVaLIfdH1iXNTcUd" 
-                      alt="Firman Suryani - Professional Photographer" 
+                      alt="Firman Suryani - Professional Photographer"
+                      sizes="(min-width: 768px) 42vw, 100vw"
+                      priority
                       className="w-full h-full object-cover"
                       wrapperClassName="w-full h-full"
                     />
